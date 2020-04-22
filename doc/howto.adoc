@@ -1,0 +1,76 @@
+= Codelab Converter for Asciidoctor
+:id: codelab-converter-asciidoc
+:feedback-link: #
+
+This package implements a custom converter for link:https://github.com/asciidoctor/asciidoctor.js[Asciidoctor.js] that can be used to produce link:https://codelabs.developers.google.com[Google Codelab] instances from
+Asciidoctor documents. 
+
+Codelabs are interactive instructional tutorials that can also be authored in Google Docs and Markdown. If you want to know more about hat, follow this link: link:https://github.com/googlecodelabs/tools[Tools for authoring and serving codelabs].
+
+[#install,duration="5"]
+== Installation
+
+You need Node installed on your machine to install and run the Asciidoctor Codelabs converter.
+
+To install the converter globally, open a terminal and type
+
+[source,sh]
+----
+npm i -g @henriette-einstein/asciidoctor-codelab
+----
+
+[duration=2]
+== How to write a Codelab
+Every Asciidoctor document can be converted as a Codelab. There are some things, that have to be considered.
+
+* The document attribute "id" is used as the Codelab id. If the attribute is not set, an 8-digit random number is generated
+* The document attribute "feedback-link" is used as the feedback-link of the Codelab
+* The title of the document will be converted as the Codelab title
+* Every level 1 section will be converted as a Codelab step
+** if the section has a duration attribute, it will be used as the duration for the Codelab step
+* The preamble will be converted as a Codelab step with title "Overview"
+
+Please remember: Images must be placed inside the target directory.
+
+image::dog.jpeg[Dog]
+
+[duration=2]
+===  Attributes Overview
+The Codelab converter uses the following attributes
+
+|===
+| Attribute | Level | Description
+
+| id | Document | Used as the Codelab ID
+| feedback-link | Document | Used as the Codelab feedback link
+| duration | Level 1 Section | Used as the duration of the Codelab step
+
+|===
+
+[duration=1]
+== Command Line Invocation
+The Codelab converter includes a command line that extends the Asciidoctor-CLI and automatically registers the
+custom converter. You can use it like the regular Asciidoctor.js CLI. 
+
+To get an overview of the supported CLI options, write
+
+[source,sh]
+----
+asciidoctor-codelab --help
+----
+
+[duration=2]
+== Embedding the converter
+
+[source,javascript]
+----
+const asciidoctor = require('asciidoctor')()
+const cnv = require('@henriette-einstein/asciidoctor-codelabs')
+
+cnv.configure(asciidoctor)
+
+/** call any convert-method you need. This is just a sample */
+asciidoctor.convertFile('<path to file>')
+----
+
+

@@ -1,0 +1,200 @@
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta name="theme-color" content="#4F7DC9" />
+    <meta charset="UTF-8" />
+    <title>Codelab Converter for Asciidoctor</title>
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono"
+    />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://storage.googleapis.com/codelab-elements/codelab-elements.css"
+    />
+    <style>
+      .success {
+        color: #1e8e3e;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <google-codelab
+      codelab-gaid=""
+      id="codelab-converter-asciidoc"
+      environment="web"
+      feedback-link="#"
+      title="Codelab Converter for Asciidoctor"
+    >
+      <google-codelab-step label="Overview">
+  <div class="paragraph">
+<p>This package implements a custom converter for <a href="https://github.com/asciidoctor/asciidoctor.js">Asciidoctor.js</a> that can be used to produce <a href="https://codelabs.developers.google.com">Google Codelab</a> instances from
+Asciidoctor documents.</p>
+</div>
+<div class="paragraph">
+<p>Codelabs are interactive instructional tutorials that can also be authored in Google Docs and Markdown. If you want to know more about hat, follow this link: <a href="https://github.com/googlecodelabs/tools">Tools for authoring and serving codelabs</a>.</p>
+</div>
+</google-codelab-step>
+
+
+<google-codelab-step
+  label="Installation"
+  duration="5"
+>
+  <div class="paragraph">
+<p>You need Node installed on your machine to install and run the Asciidoctor Codelabs converter.</p>
+</div>
+<div class="paragraph">
+<p>To install the converter globally, open a terminal and type</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">npm i -g @henriette-einstein/asciidoctor-codelab</code></pre>
+</div>
+</div> 
+  </google-codelab-step>
+</google-codelab-step>
+
+
+<google-codelab-step
+  label="How to write a Codelab"
+  duration="2"
+>
+  <div class="paragraph">
+<p>Every Asciidoctor document can be converted as a Codelab. There are some things, that have to be considered.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The document attribute "id" is used as the Codelab id. If the attribute is not set, an 8-digit random number is generated</p>
+</li>
+<li>
+<p>The document attribute "feedback-link" is used as the feedback-link of the Codelab</p>
+</li>
+<li>
+<p>The title of the document will be converted as the Codelab title</p>
+</li>
+<li>
+<p>Every level 1 section will be converted as a Codelab step</p>
+<div class="ulist">
+<ul>
+<li>
+<p>if the section has a duration attribute, it will be used as the duration for the Codelab step</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The preamble will be converted as a Codelab step with title "Overview"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please remember: Images must be placed inside the target directory.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="dog.jpeg" alt="Dog">
+</div>
+</div>
+
+<google-codelab-step
+  label="Attributes Overview"
+  duration="2"
+>
+  <div class="paragraph">
+<p>The Codelab converter uses the following attributes</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Level</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Document</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used as the Codelab ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">feedback-link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Document</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used as the Codelab feedback link</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">duration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level 1 Section</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used as the duration of the Codelab step</p></td>
+</tr>
+</tbody>
+</table> 
+  </google-codelab-step>
+</google-codelab-step>
+ 
+  </google-codelab-step>
+</google-codelab-step>
+
+
+<google-codelab-step
+  label="Command Line Invocation"
+  duration="1"
+>
+  <div class="paragraph">
+<p>The Codelab converter includes a command line that extends the Asciidoctor-CLI and automatically registers the
+custom converter. You can use it like the regular Asciidoctor.js CLI.</p>
+</div>
+<div class="paragraph">
+<p>To get an overview of the supported CLI options, write</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">asciidoctor-codelab --help</code></pre>
+</div>
+</div> 
+  </google-codelab-step>
+</google-codelab-step>
+
+
+<google-codelab-step
+  label="Embedding the converter"
+  duration="2"
+>
+  <div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">const asciidoctor = require('asciidoctor')()
+const cnv = require('@henriette-einstein/asciidoctor-codelabs')
+
+cnv.configure(asciidoctor)
+
+/** call any convert-method you need. This is just a sample */
+asciidoctor.convertFile('&lt;path to file&gt;')</code></pre>
+</div>
+</div> 
+  </google-codelab-step>
+</google-codelab-step>
+
+    </google-codelab>
+    <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+    <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+    <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+    <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  </body>
+</html>
