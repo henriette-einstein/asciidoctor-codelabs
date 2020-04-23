@@ -1,7 +1,9 @@
 <% if (node.getLevel() === 1) { %>
 <google-codelab-step
   label="<%= node.getTitle() %>"
-  <%= node.hasAttribute('duration') ? 'duration="' + node.getAttribute('duration') + '"' : '' %>
+  <% if (node.hasAttribute('duration')) { %>
+  duration="<%= node.getAttribute('duration') %>"
+  <% } %>
 >
     <%- node.getContent() %>
 </google-codelab-step>

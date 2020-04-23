@@ -34,7 +34,6 @@ Please remember: Images must be placed inside the target directory.
 
 image::dog.jpeg[Dog]
 
-[duration=2]
 ===  Attributes Overview
 The Codelab converter uses the following attributes
 
