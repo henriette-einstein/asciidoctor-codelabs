@@ -49,9 +49,9 @@ Asciidoctor documents.</p>
 
 <google-codelab-step
   label="Installation"
-  duration="5"
+  duration=&#34;5&#34;
 >
-  <div class="paragraph">
+    <div class="paragraph">
 <p>You need Node installed on your machine to install and run the Asciidoctor Codelabs converter.</p>
 </div>
 <div class="paragraph">
@@ -61,16 +61,16 @@ Asciidoctor documents.</p>
 <div class="content">
 <pre class="highlight"><code class="language-sh" data-lang="sh">npm i -g @henriette-einstein/asciidoctor-codelab</code></pre>
 </div>
-</div> 
-  </google-codelab-step>
+</div>
 </google-codelab-step>
+
 
 
 <google-codelab-step
   label="How to write a Codelab"
-  duration="2"
+  duration=&#34;2&#34;
 >
-  <div class="paragraph">
+    <div class="paragraph">
 <p>Every Asciidoctor document can be converted as a Codelab. There are some things, that have to be considered.</p>
 </div>
 <div class="ulist">
@@ -108,11 +108,9 @@ Asciidoctor documents.</p>
 </div>
 </div>
 
-<google-codelab-step
-  label="Attributes Overview"
-  duration="2"
->
-  <div class="paragraph">
+  <section>
+    <h2>Attributes Overview</h2>
+   <div class="paragraph">
 <p>The Codelab converter uses the following attributes</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -145,19 +143,25 @@ Asciidoctor documents.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Used as the duration of the Codelab step</p></td>
 </tr>
 </tbody>
-</table> 
-  </google-codelab-step>
+</table>
+  </section>
+
+
 </google-codelab-step>
- 
-  </google-codelab-step>
-</google-codelab-step>
+
 
 
 <google-codelab-step
-  label="Command Line Invocation"
-  duration="1"
+  label="How to use the converter"
+  duration=&#34;2&#34;
 >
-  <div class="paragraph">
+    <div class="paragraph">
+<p>You can either use the converter via the command line or by embedding it in your own application.</p>
+</div>
+
+  <section>
+    <h2>Command Line Invocation</h2>
+   <div class="paragraph">
 <p>The Codelab converter includes a command line that extends the Asciidoctor-CLI and automatically registers the
 custom converter. You can use it like the regular Asciidoctor.js CLI.</p>
 </div>
@@ -168,16 +172,14 @@ custom converter. You can use it like the regular Asciidoctor.js CLI.</p>
 <div class="content">
 <pre class="highlight"><code class="language-sh" data-lang="sh">asciidoctor-codelab --help</code></pre>
 </div>
-</div> 
-  </google-codelab-step>
-</google-codelab-step>
+</div>
+  </section>
 
 
-<google-codelab-step
-  label="Embedding the converter"
-  duration="2"
->
-  <div class="listingblock">
+
+  <section>
+    <h2>Embedding the converter</h2>
+   <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-javascript" data-lang="javascript">const asciidoctor = require('asciidoctor')()
 const cnv = require('@henriette-einstein/asciidoctor-codelabs')
@@ -187,9 +189,12 @@ cnv.configure(asciidoctor)
 /** call any convert-method you need. This is just a sample */
 asciidoctor.convertFile('&lt;path to file&gt;')</code></pre>
 </div>
-</div> 
-  </google-codelab-step>
+</div>
+  </section>
+
+
 </google-codelab-step>
+
 
     </google-codelab>
     <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>

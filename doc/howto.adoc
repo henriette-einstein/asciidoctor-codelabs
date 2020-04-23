@@ -47,8 +47,11 @@ The Codelab converter uses the following attributes
 
 |===
 
-[duration=1]
-== Command Line Invocation
+[duration=2]
+== How to use the converter
+You can either use the converter via the command line or by embedding it in your own application.
+
+=== Command Line Invocation
 The Codelab converter includes a command line that extends the Asciidoctor-CLI and automatically registers the
 custom converter. You can use it like the regular Asciidoctor.js CLI. 
 
@@ -59,8 +62,7 @@ To get an overview of the supported CLI options, write
 asciidoctor-codelab --help
 ----
 
-[duration=2]
-== Embedding the converter
+=== Embedding the converter
 
 [source,javascript]
 ----
